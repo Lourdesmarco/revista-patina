@@ -13,11 +13,7 @@
       <h2>Números anteriores</h2>
       
         <article class="grid-item" v-for="(item, index) in items">
-          <!-- <a href=""> -->
             <img :src="`/images/${item.imgURL}.png`" :alt="item.textAlt" @click="showModal = true; currentItem = index + 1">
-
-            <!-- <img v-else :src="`/images/prueba.png`" :alt="item.textAlt"> -->
-          <!-- </a> -->
           <h3>{{ item.numero }}</h3>
           <div class="grid-item-links">
             <a :href="item.drivePdfDownload" target="_blank" download>Descargar PDF</a>
@@ -27,6 +23,8 @@
         <DetailsModal v-show="showModal" @close-modal="showModal = false" :item="items[currentItem - 1]" />
     </section>
     
+    <FooterBlock />
+  
   </main>
 </template>
 
@@ -107,14 +105,15 @@
 <script>
 
 import DetailsModal from '../components/DetailsModal.vue'
+import FooterBlock from '../components/FooterBlock.vue'
 
 export default {
-  components: { DetailsModal },
+  components: { DetailsModal, FooterBlock },
   data() {
     
     return {
       showModal: false,
-      currentItem: "",
+      currentItem: "1",
       items: ref([
         {  
           textAlt: "Primer número Revista Pátina",
@@ -123,8 +122,8 @@ export default {
           drivePdfView: 'https://drive.google.com/file/d/1nbdy_H0RzbjSL29R7iydnxykiCWCd1GV/view',
           drivePdfDownload: "https://drive.google.com/uc?export=download&id=1nbdy_H0RzbjSL29R7iydnxykiCWCd1GV",
           articles:[
-            { key: 1, link: "https://drive.google.com/file/d/1nbdy_H0RzbjSL29R7iydnxykiCWCd1GV/view" },
-            { key: 2, link: "https://drive.google.com/file/d/1nbdy_H0RzbjSL29R7iydnxykiCWCd1GV/view" }
+            { key: 1, title: "Articulo 1", link: "#" },
+            { key: 2, title: "Articulo 2", link: "#" }
           ]
         }, 
         { 
