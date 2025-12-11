@@ -16,7 +16,7 @@
     height: 200px;
     width: 100%;
     background-color: #ae152d;
-    padding: 40px;
+    padding: 40px 0;
     text-align: center;
     a{
       display: block;
